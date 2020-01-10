@@ -1,16 +1,21 @@
-import { View, TabBarIOS, TabBarItemIOS } from 'react-native';
-import React, { Component } from 'react';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import { ActionCreators } from '../../actions';
-import Novel from '../Novel';
-import About from '../About';
+import About from '../About'
+import Novel from '../Novel'
+import { connect } from 'react-redux'
+import React, { Component } from 'react'
+import { bindActionCreators } from 'redux'
+import { ActionCreators } from '../../actions'
+import { View, TabBarIOS, TabBarItemIOS } from 'react-native'
+import { AsyncStorage } from 'react-native'
 
 class ApplicationTabs extends Component {
 
   constructor(props) {
     super(props)
     this.state = { index: 0 }
+  }
+
+  componentWillMount() {
+   
   }
 
   onPress(index) {
@@ -22,7 +27,7 @@ class ApplicationTabs extends Component {
       <View style={ { flex: 1 } }>
         { React.createElement(component, this.props) }
       </View>
-    );
+    )
   }
 
   render() {
@@ -57,7 +62,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators(ActionCreators, dispatch);
+  return bindActionCreators(ActionCreators, dispatch)
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ApplicationTabs);
+export default connect(mapStateToProps, mapDispatchToProps)(ApplicationTabs)
